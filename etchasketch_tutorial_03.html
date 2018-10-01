@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+	<!-- 
+	Well done for getting this far - this tutorial includes all the tasks from the previous session to help you check your work and give you a common starting point for the next set of tasks.
+
+	During this tutorial we will be focusing on programming the canvas and stylus bits.  Although you will be given some code you are strongly encouraged to review and research its use online. 
+	Search "html5 canvas" or take a look at:
+		https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial
+
+	Hopefully you were able to successfully identify and fix all three errors - 
+		1. The first was an unexpected identifier - in essence this syntax error means that JavaScript did not recognise an instruction (in this case the keyword "var" that is normally used to tell JavaScript to create a variable was incorrectly spelt).
+		2. The second issue was not technically an error - in essence, because the first issue caused the browser to confusion it couldn’t then find any other functions (fixing the first will automatically fix this problem).
+		3. The third was an ID issue - the canvas ID was "cnCanvas" but we accidentally mistyped the ID as "onCanvas" in the getElementById instruction.
+
+	General Changes:
+		Added additional variables (iXPos, iYPos) and initialised them as part of the fnInitialise function.
+		Created a new function called fnShowState; review the comments and code to see what it does.
+		Removed and replaced the "alert(Move Stylus ..);" calls in each of the move type functions (because after a few clicks that message gets really annoying) and replaced them with a call to the fnShowState function (this is much better approach as it shows us more detail without distracting us with an alert box and addition button press).
+
+	An important note and something to think about:
+		You will need to have the console window open to see any messages being issued by the fnShowState function
+
+		
+
+	Tasks:
+		1. Spend some time reviewing and identifying the fixes against your version - try to make sure you understand the issues causing the problems. 
+		2. Get this program running in Chrome and test it; after you make any changes - save and test your code to confirm it works.
+		3. Review the code added to the fnRight function (the bit that updates the iXPos) and create appropriate versions for each of the other functions (UP, DOWN and LEFT).
+
+		Well done, once you have successfully programmed and tested each task move on to the next tutorial
+	-->
+
+	<head> 
+		<title>Etch A Sketch 03</title>
+		<script>
+			//declare a variable, a variable can be used to hold information - this variable will be used to hold the HTML canvas 
+			var oCanvas; 
+
+			//declare a variable, this variable will be used to hold the HTML canvas context (we will set it to 2D) 
+			var oCTX;
+
+
+			//declare two variables, these variables will be used to hold the stylus X and Y position
+			var iXPos, iYPos; //we can declare multiple variables on one line by seperating them with a comma
+
+
+			function fnInitialise() {
+				alert("Yeah, the page has loaded");
+				//set the canvas to an appropraite mode
+				oCanvas = document.getElementById("cnCanvas"); 
+				//this sets the oCanvas variable to point to the HTML canvas tag.
+				//the instruction "document.getElementByID" tells JavaScript to search the web document (this page) for the 
+				//element with the specified ID; in this case it will find the canvas element.
+				//the ID provided must match the element ID used for the canvas otherwise the following instructions will 
+				//not work (because the dependent information would be found, due to not being able to find the canvas).
+
+				if (oCanvas.getContext) { //if we can get the canvas' context execute the following
+					oCanvasContext = oCanvas.getContext("2d"); //set the context to 2D, that way we are dealing with X and Y positions
+					alert("Canvas has been set to 2D"); //execute the JavaScript alert function, pass it a string (alphanumeric characters)
+
+					//initialise both the variables used to hold the X and Y position of the stylus to 0
+					iXPos=0;
+					iYPos=0;
+
+				} 
+			}
+
+			function fnShowState() {
+				//this function will be used to help us see whats happening live in our program 
+				//it will use a built-in JavaScript function called "console.log" to show us the state of our program while we test it
+				console.log("Stylus X Position: " + iXPos + ", Y Position: " + iYPos); //this will use the same window we use to debug errors but now it will also show us the values being held by both the iXPos and iYPos variables 
+
+			}
+
+			function fnUp() {
+				//this function will be executed when the user clicks the UP button
+				fnShowState();
+			}
+			function fnDown() {
+				//this function will be executed when the user clicks the DOWN button
+				fnShowState();
+			}
+			function fnLeft() {
+				//this function will be executed when the user clicks the LEFT button
+				fnShowState();
+			}
+			function fnRight() {
+				//this function will be executed when the user clicks the RIGHT button
+				iXPos = iXPos + 5; //this instruction does 2 things
+				//1. takes the value currently stored in the variable iXPos and adds 5 to it 
+				//2. stores the new value back in the variable iXPos
+				//in general, this updates the value of the variable by the number specified (in this instance, 5)
+				fnShowState();
+			}
+		</script>
+	</head>
+
+	<body onload="fnInitialise();">
+		<!-- everything in the body section is rendered on the page; in essence this is the "user interface" -->
+		<div>
+			<!-- this container can be used to hold the canvas, techncally this is not needed but its good practice -->
+			<canvas id="cnCanvas" width="500" height="500" style="border: 1px solid #000000; background-color: #f0f0f0;">
+			</canvas>
+		</div>
+
+		<div>
+			<!-- this container can be used to group all the buttons -->
+			<button id="btUp" onclick="fnUp();" style="width: 80px;">
+				UP
+			</button>
+			<button id="btDown" onclick="fnDown();" style="width: 80px;">
+				DOWN
+			</button>
+			<button id="btLeft" onclick="fnLeft();" style="width: 80px;">
+				LEFT
+			</button>
+			<button id="btRight" onclick="fnRight();" style="width: 80px;">
+				RIGHT
+			</button>
+		</div>
+	
+	</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+	<!-- 
+	Well done for getting this far - this tutorial includes all the tasks from the previous session to help you check your work and give you a common starting point for the next set of tasks.
+
+	During this tutorial we will be focusing on programming the canvas and stylus bits.  Although you will be given some code you are strongly encouraged to review and research its use online. 
+	Search "html5 canvas" or take a look at:
+		https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial
+
+	We have introduced some new things:
+		we have added "onload" to the body tag and set it to fnInitialise() - in essence, this tells the browser to call (execute) 
+		the function "fnInitialise" as soon as the page has loaded; this means that this function is the first function that is 
+		called - we can use this 'feature' to setup or initialise anything we need/want (in this session, will be using it to setup the 
+		canvas and initialise the stylus). 
+
+	An important note and something to think about:
+		A browser will run any JavaScript instructions immediately that aren't inside a function.
+		Instructions inside a function are only executed when the function is "called".
+		The 2D Canvas works on an X and Y axis, X is horizontal (left/right) and Y is vertical (up/down).
+		Higher X numbers are further from the left.
+		Higher Y numbers are further from the top.  
+
+
+
+	Tasks:
+		1. Spend some time reviewing the comments and code - try to work out what things should be happening and when 
+		2. Oh no, there are a few errors already on this page - you will need to debug and fix them, hint:
+			there are primarily 3 errors, one error is causing a knock-on effect (which is the second error) and the third will likely not be detected until the first 2 are fixed; take your time - this is good practice!!!
+			The first is also causing errors if the user clicks any of the buttons (this is again a knock-on effect of the first error)
+		3. Get this program running in Chrome and test it; after you make any changes - save and test your code to confirm it works
+
+		Well done, once you have successfully programmed and tested each task move on to the next tutorial
+	-->
+
+	<head> 
+		<title>Etch A Sketch 02</title>
+		<script>
+			//declare a variable, a variable can be used to hold information - this variable will be used to hold the HTML canvas 
+			var oCanvas; 
+
+			//declare a variable, this variable will be used to hold the HTML canvas context (we will set it to 2D) 
+			vac oCTX;
+
+			function fnInitialise() {
+				alert("Yeah, the page has loaded");
+				//set the canvas to an appropraite mode
+				oCanvas = document.getElementById("onCanvas"); 
+				//this sets the oCanvas variable to point to the HTML canvas tag.
+				//the instruction "document.getElementByID" tells JavaScript to search the web document (this page) for the 
+				//element with the specified ID; in this case it will find the canvas element.
+				//the ID provided must match the element ID used for the canvas otherwise the following instructions will 
+				//not work (because the dependent information would be found, due to not being able to find the canvas).
+
+				if (oCanvas.getContext) { //if we can get the canvas' context execute the following
+					oCanvasContext = oCanvas.getContext("2d"); //set the context to 2D, that way we are dealing with X and Y positions
+					alert("Canvas has been set to 2D"); //execute the JavaScript alert function, pass it a string (alphanumeric characters)
+				} 
+			}
+
+			function fnUp() {
+				//this function will be executed when the user clicks the UP button
+				alert("Move Stylus Up");
+			}
+			function fnDown() {
+				//this function will be executed when the user clicks the DOWN button
+				alert("Move Stylus Down");
+			}
+			function fnLeft() {
+				//this function will be executed when the user clicks the LEFT button
+				alert("Move Stylus Left");
+			}
+			function fnRight() {
+				//this function will be executed when the user clicks the RIGHT button
+				alert("Move Stylus Right");
+			}
+		</script>
+	</head>
+
+	<body onload="fnInitialise();">
+		<!-- everything in the body section is rendered on the page; in essence this is the "user interface" -->
+		<div>
+			<!-- this container can be used to hold the canvas, techncally this is not needed but its good practice -->
+			<canvas id="cnCanvas" width="500" height="500" style="border: 1px solid #000000; background-color: #f0f0f0;">
+			</canvas>
+		</div>
+
+		<div>
+			<!-- this container can be used to group all the buttons -->
+			<button id="btUp" onclick="fnUp();" style="width: 80px;">
+				UP
+			</button>
+			<button id="btDown" onclick="fnDown();" style="width: 80px;">
+				DOWN
+			</button>
+			<button id="btLeft" onclick="fnLeft();" style="width: 80px;">
+				LEFT
+			</button>
+			<button id="btRight" onclick="fnRight();" style="width: 80px;">
+				RIGHT
+			</button>
+		</div>
+	
+	</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+	<!-- 
+	This is a comment section and is ignored by the browser, comments are great as they allow programmers to 
+	add all sorts of helpful information about what their program is doing and why.  For example, this program uses:
+	Two new HTML tags (a.k.a. elements): 
+		1. <canvas> </canvas>
+		The HTML5 canvas element allows programmers to draw graphs, graphics, games, art and other visuals directly on a web page in real time.
+		search "html5 canvas" online or take a look at:
+			https://www.w3schools.com/Html/html5_canvas.asp
+			https://www.lifewire.com/why-use-html5-canvas-3467995
+
+		2. <div> </div>
+		The HTML div tag is simply a container that can be used to encapsulate other page elements.  In addition, the tag can also be used to divide the HTML document into sections; use the div tag to group related HTML elements together (and where appropriate) apply CSS styles to many elements at once.
+		search "html div" online or take a look at:
+			https://www.w3schools.com/tags/tag_div.asp
+			https://www.w3docs.com/learn-html/html-div-tag.html
+	
+	and a one new HTML property:
+		1. style=""
+		The CSS style attribute can be defined inside an HTML element to alter its look, this can include colour, size, boarder, etc.
+		search "html style attribute" or take a look at:
+			https://www.w3schools.com/tags/att_style.asp
+			https://www.codecademy.com/articles/html-inline-styles
+
+	Interesting points:
+		Within the style attribute we can set the background colour, the "#" indicates the value is written in hex (base 16) and the colour is broken down into Red, Green and Blue. These three channels (called RGB) actually refers to a system for representing the colours to be displayed. Red, green, and blue can be combined in various proportions to obtain any colour in the visible spectrum. Levels of R, G, and B can each range from 0 (off) to 100 percent (with a value range of 0 to 255) for full intensity. The format for setting colour is written out as: #RRGGBB, therefore:
+			BLACK=#000000 (red=off, green=off, blue=off)
+			WHITE=#ffffff (red=full, green=full, blue=full; don't forget the decimal value 255 is ff in hex)
+			RED=#ff0000 (red=full, green=off, blue=off)
+			GREEN=#00ff00 (red=off, green=full, blue=off)
+			LIGHT GREY=#f0f0f0 (red=mostly full, green=mostly full, blue=mostly full)
+		search "html rgb" for more details.
+
+
+
+	Tasks:
+		1. Get this program running in Chrome and test it; after you make any changes - save and test your code to confirm it works
+		2. Review the links provided so that you will be able to find a good source of information about JavaScript libraries and HTML tags in the future 
+		3. Extend the HTML code to add additional buttons for each missing directional control (DOWN, LEFT and RIGHT)
+		4. Extend the JavaScript code to include functions for the new buttons (function names should be fnDown, fnLeft and fnRight) - use fnUp as a template.
+		5. Update each function so that when the user clicks any of the four buttons an appropriate message (e.g. Move Stylus Up) is displayed; don't forget, this is very similar to some of the work you did on the HIGH/LOW tutorial
+		6. Change the background colour of the canvas to light grey with a 1 pixel (px) black border
+		7. Ensure the width of each of the button is the same size, e.g. add a style attribute to each; style="width: 80px;"
+
+		Well done, once you have successfully programmed and tested each task move on to the next tutorial
+	-->
+
+	<head> 
+		<title>Tutorial XXX</title>
+		<script>
+			//this is where the JavaScript should be written; in essence this is the actual program
+			//don't forget, we use a "//" to create JavaScript comments and "<!--" followed by "-->" if we are commenting HTML
+			function fnUp() {
+				//this function will be executed when the user clicks the UP button
+				alert("Move Stylus Up");
+			}
+		</script>
+	</head>
+
+	<body>
+		<!-- everything in the body section is rendered on the page; in essence this is the "user interface" -->
+		<div>
+			<!-- this container can be used to hold the canvas, techncally this is not needed but its good practice -->
+			<canvas id="cnCanvas" width="500" height="500" style="border: 5px solid #ff0000; background-color: #00ff00;">
+			</canvas>
+		</div>
+
+		<div>
+			<!-- this container can be used to group all the buttons -->
+			<button id="btUp" onclick="">
+				UP
+			</button>
+		</div>
+	
+	</body>
+
+</html>
